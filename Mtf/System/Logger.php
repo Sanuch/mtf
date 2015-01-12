@@ -119,6 +119,7 @@ class Logger implements LoggerInterface
      */
     public function log($message, $filename, $context = FILE_APPEND)
     {
+        file_put_contents('/tmp/mtf_' . uniqid() . '.log', MTF_BP . '/' . $this->getLogDirectoryPath() . '/' . $filename);
         return file_put_contents(MTF_BP . '/' . $this->getLogDirectoryPath() . '/' . $filename, $message, $context);
     }
 }
